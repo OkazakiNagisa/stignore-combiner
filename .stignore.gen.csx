@@ -11,6 +11,7 @@ async Task main()
     try
     {
         using var file = new StreamWriter(".stignore", false);
+        await file.WriteLineAsync("#include .stglobalignore");
 
         foreach (string line in records)
             await file.WriteLineAsync(line);
