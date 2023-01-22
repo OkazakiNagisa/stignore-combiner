@@ -55,7 +55,7 @@ async Task WalkDirectoryTree(DirectoryInfo dir, bool root)
         await WalkDirectoryTree(dirInfo, false);
 }
 
-var regex = new Regex(@"^(#include\s|((!|(\(\?[di]\))){0,3}/))(?=\w)", RegexOptions.Singleline);
+var regex = new Regex(@"^(#include\s|((!|(\(\?[di]\))){0,3}/))(?!/)", RegexOptions.Singleline);
 
 async Task ParseFile(FileInfo file)
 {
