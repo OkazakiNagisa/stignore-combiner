@@ -4,14 +4,27 @@ var records = new List<string>();
 
 async Task main()
 {
+    if (!File.Exists(".stignore"))
+    {
+        try
+        {
+            using var file = new StreamWriter(".stignore", false);
+            await file.WriteAsync("#include .stignore.global\n#include .stignore.gen");
+        }
+        catch (SystemException e)
+        {
+            Console.Error.WriteLine(e.Message);
+            Console.ReadKey();
+        }
+    }
+
     Console.WriteLine($"Working dir: {Environment.CurrentDirectory}\nContinue?");
     Console.ReadKey();
 
     await WalkDirectoryTree(new DirectoryInfo(Environment.CurrentDirectory), true);
     try
     {
-        using var file = new StreamWriter(".stignore", false);
-        await file.WriteLineAsync("#include .stglobalignore");
+        using var file = new StreamWriter(".stignore.gen", false);
 
         foreach (string line in records)
             await file.WriteLineAsync(line);

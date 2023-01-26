@@ -60,7 +60,7 @@ A utility to combine `.stignore` files under every folder together into one file
    
 2. If you have Visual Studio with C# workflow installed:
 
-   1. Add `(VSInstallationPath)/MSBuild/Current/Bin/Roslyn` to `PATH`, <br>then run `csi .stignore.gen.csx`
+   1. Add `(VSInstallationPath)/MSBuild/Current/Bin/Roslyn` to `PATH` environment variable, <br>then run `csi .stignore.gen.csx`
 
    2. Copy-and-paste code to a C# project, build and run as an executable.
 
