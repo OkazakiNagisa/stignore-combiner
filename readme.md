@@ -31,7 +31,7 @@ A utility to combine `.stignore` files under every folder together into one file
 (?d).iCloud
 ```
 
-./.stignore (output):
+./.stignore.gen (output):
 
 ```
 /// subfolder1/.stignore
@@ -52,6 +52,13 @@ A utility to combine `.stignore` files under every folder together into one file
 (?d).Trashes
 (?d).Trash-1000
 (?d).iCloud
+```
+
+./.stignore (output):
+
+```
+#include .stignore.global
+#include .stignore.gen
 ```
 
 ## How to run
