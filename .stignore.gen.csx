@@ -4,12 +4,12 @@ var records = new List<string>();
 
 async Task main()
 {
-    if (!File.Exists(".stignore"))
+    // if (!File.Exists(".stignore"))
     {
         try
         {
             using var file = new StreamWriter(".stignore", false);
-            await file.WriteAsync("#include .stignore.global\n#include .stignore.gen");
+            await file.WriteAsync("#include .stignore.gen");
         }
         catch (SystemException e)
         {
